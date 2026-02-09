@@ -1,0 +1,84 @@
+Request URL
+https://vtopcc.vit.ac.in/vtop/examinations/doStudentMarkView
+Request Method
+POST
+Status Code
+200 OK
+Remote Address
+122.187.117.185:443
+Referrer Policy
+strict-origin-when-cross-origin
+cache-control
+no-cache, no-store, max-age=0, must-revalidate
+content-language
+en-US
+content-length
+65817
+content-security-policy
+default-src 'self'; frame-ancestors 'self'; font-src 'self' http://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com; frame-src 'self' *.google.com; child-src 'self' https://docs.google.com/ *.google.com data: blob:; style-src 'self' 'unsafe-inline' http://fonts.googleapis.com https://www.gstatic.com/charts/ https://www.google.com/recaptcha/ *.google.com; script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.gstatic.com/recaptcha/ http://fonts.googleapis.com https://www.google.com/recaptcha/ *.google.com; img-src 'self' https://*.googleapis.com https://*.gstatic.com *.google.com *.googleusercontent.com data:; object-src 'self' https://www.google.com https://www.gstatic.com data: blob:; connect-src 'self' https://vibot.vit.ac.in https://apicc.vit.ac.in https://*.googleapis.com *.google.com https://*.gstatic.com;
+content-type
+text/html;charset=UTF-8
+date
+Mon, 09 Feb 2026 11:57:20 GMT
+expires
+0
+pragma
+no-cache
+strict-transport-security
+max-age=31536000 ; includeSubDomains
+vary
+Origin
+vary
+Access-Control-Request-Method
+vary
+Access-Control-Request-Headers
+x-content-type-options
+nosniff
+x-frame-options
+SAMEORIGIN
+x-xss-protection
+1; mode=block
+accept
+*/*
+accept-encoding
+gzip, deflate, br, zstd
+accept-language
+en-US,en;q=0.9
+connection
+keep-alive
+content-length
+390
+content-type
+multipart/form-data; boundary=----WebKitFormBoundaryhsOBHtChbhuBVMXY
+cookie
+JSESSIONID=354A199245E69B66FBF05BAE2A1E65E6; _ga_P7DT1QXXSK=GS1.1.1742827722.1.1.1742828455.0.0.0; _ga_7PM892EE02=GS1.1.1742827722.1.1.1742828455.60.0.0; _ga_ZYGQ8432T2=GS1.1.1742827722.1.1.1742828455.60.0.0; _ga_7QZ1J9SQPV=GS2.1.s1752803381$o22$g1$t1752803396$j45$l0$h0; _ga_HCJN9HZ53E=GS2.3.s1753198737$o1$g0$t1753198737$j60$l0$h0; _cc_id=d6fdc1196839ef2482e64b4f79a461ab; _ga_9F3B5VV3T3=GS2.1.s1753198758$o1$g1$t1753200036$j60$l0$h0; _lc2_fpi=9e9a2bda9e1f--01k0setdss55z82jtc7cdy1avz; _li_ss=CgA; _fbp=fb.2.1759164226577.785122061515290676; _ga_8L0VT1T7RG=GS2.1.s1764851950$o12$g1$t1764851968$j42$l0$h0; AMCV_8E929CC25A1FB2B30A495C97%40AdobeOrg=MCMID|23997682666820724974492463592782673787; sncc=P%3D17%3AV%3D72.0.0%26C%3DC01%2CC02%2CC03%2CC04%2CC05%2CC06%26D%3Dtrue; _ga=GA1.1.1233554855.1742907618; _ga_B3E4QL2TPR=GS2.1.s1768127165$o1$g0$t1768127165$j60$l0$h0; _ga_MH57P1ZKYK=GS2.1.s1768126496$o1$g1$t1768127769$j60$l0$h0; _clck=138imis%5E2%5Eg31%5E0%5E2063; crisp-client%2Fsession%2F476a9cab-f269-4554-a5e1-5ea2cd9b6e61=session_6ca48446-abda-4363-905b-16a3a65cb4ee; _ga_0FNBXHRR67=GS2.1.s1769420472$o4$g0$t1769420472$j60$l0$h0; kndctr_8E929CC25A1FB2B30A495C97_AdobeOrg_identity=CiYyMzk5NzY4MjY2NjgyMDcyNDk3NDQ5MjQ2MzU5Mjc4MjY3Mzc4N1IRCICQtOS6MxgBKgRJTkQxMAHwAYzLi_TBMw==; __gads=ID=7129d3411ec31867:T=1742828476:RT=1770038437:S=ALNI_MaMSDfenA9LpNEWjZkm_wf6836X4g; __gpi=UID=00001000d8c0e95d:T=1742828476:RT=1770038437:S=ALNI_MbF6XSWeKNB01s4DNw-ChuPO9TGhQ; __eoi=ID=bddf87ebb5b416d5:T=1768126489:RT=1770038437:S=AA-AfjbnNGCa4JD-iYi0uND8cLWX; AMCV_4D6368F454EC41940A4C98A6%40AdobeOrg=179643557%7CMCIDTS%7C20487%7CMCMID%7C24201935912228581064504618240545831856%7CMCAAMLH-1770643297%7C12%7CMCAAMB-1770643297%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1770045697s%7CNONE%7CMCAID%7CNONE%7CMCCIDH%7C2139980714%7CvVersion%7C5.5.0; s_pers=%20c19%3Dsd%253Asearch%253Aresults%253Acustomer-standard%7C1770040301998%3B%20v68%3D1770038501991%7C1770040302002%3B%20v8%3D1770038535461%7C1864646535461%3B%20v8_s%3DMore%2520than%252030%2520days%7C1770040335461%3B; cookiesession1=678A8C32802E614DF340849EE9003D34; SERVERID=vt1
+host
+vtopcc.vit.ac.in
+origin
+https://vtopcc.vit.ac.in
+referer
+https://vtopcc.vit.ac.in/vtop/content
+sec-ch-ua
+"Not(A:Brand";v="8", "Chromium";v="144", "Google Chrome";v="144"
+sec-ch-ua-mobile
+?0
+sec-ch-ua-platform
+"Windows"
+sec-fetch-dest
+empty
+sec-fetch-mode
+cors
+sec-fetch-site
+same-origin
+user-agent
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+x-requested-with
+XMLHttpRequest
+
+
+authorizedID
+23BPS1136
+semesterSubId
+CH20252601
+_csrf
+9e0e1e10-042b-4323-b0c7-ba64e1761a7d
