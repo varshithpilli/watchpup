@@ -1,4 +1,4 @@
-# VTOP Marks Watchdog
+# VTOP WatchPup
 
 A small Python watchdog script for VTOP data changes. Currently implemented only to fetch from the Marks endpoint.
 
