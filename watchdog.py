@@ -32,11 +32,80 @@ def save_current(data):
     with STATE_FILE.open("w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-def notify(old_fp, new_fp):
+def diff_marks(old, new):
+    """
+    old, new are the wrapped objects:
+    { "STATUS": "OK", "data": [...] }
+    """
+
+    def flatten(snapshot):
+        out = {}
+        for course in snapshot["data"]:
+            ccode = course["course_code"]
+            for m in course["marks"]:
+                key = (ccode, m["mark_title"])
+                out[key] = m
+        return out
+
+    old_map = flatten(old)
+    new_map = flatten(new)
+
+    diffs = []
+
+    all_keys = set(old_map) | set(new_map)
+
+    for key in sorted(all_keys):
+        o = old_map.get(key)
+        n = new_map.get(key)
+
+        course_code, mark_title = key
+
+        if o is None:
+            diffs.append({
+                "type": "added",
+                "course_code": course_code,
+                "mark_title": mark_title,
+                "new": n
+            })
+        elif n is None:
+            diffs.append({
+                "type": "removed",
+                "course_code": course_code,
+                "mark_title": mark_title,
+                "old": o
+            })
+        else:
+            # only care about actual value changes
+            if o["scored_mark"] != n["scored_mark"]:
+                diffs.append({
+                    "type": "changed",
+                    "course_code": course_code,
+                    "mark_title": mark_title,
+                    "old_scored": o["scored_mark"],
+                    "new_scored": n["scored_mark"],
+                })
+
+    return diffs
+
+def notify(previous, current):
     # TODO: Something notofication-y
+    diffs = diff_marks(previous, current)
+
     print("================================================================")
-    print("old:", old_fp)
-    print("new:", new_fp)
+    for d in diffs:
+        if d["type"] == "changed":
+            print(
+                f'[{d["course_code"]}] {d["mark_title"]}: '
+                f'{d["old_scored"]} -> {d["new_scored"]}'
+            )
+        elif d["type"] == "added":
+            print(
+                f'[{d["course_code"]}] {d["mark_title"]}: added'
+            )
+        elif d["type"] == "removed":
+            print(
+                f'[{d["course_code"]}] {d["mark_title"]}: removed'
+            )
     print("================================================================")
 
 def now():
@@ -73,7 +142,7 @@ def main():
 
             elif current_fp != previous_fp:
                 print(now(), "STATUS: Changes Found")
-                notify(previous_fp, current_fp)
+                notify(previous, current)
                 save_current(current)
                 previous = current
                 previous_fp = current_fp

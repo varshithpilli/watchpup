@@ -2,10 +2,12 @@ import certifi
 import requests
 from dotenv import load_dotenv
 import os
-
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 load_dotenv()
 
 JSESSIONID = os.getenv("VTOP_JSESSIONID")
+SERVERID = os.getenv("VTOP_SERVERID")
 CSRF = os.getenv("VTOP_CSRF")
 REGD = os.getenv("VTOP_REGD")
 SEM = os.getenv("VTOP_SEMID")
@@ -24,8 +26,12 @@ def return_response():
 
     cookies = {
         "JSESSIONID": JSESSIONID,
-        "SERVERID": "vt1"
+        "SERVERID": SERVERID
     }
+    
+    print(JSESSIONID)
+    print(CSRF)
+    print(SERVERID)
 
     files = {
         "authorizedID": (None, REGD),
@@ -38,12 +44,13 @@ def return_response():
         headers=headers,
         cookies=cookies,
         files=files,
-        verify=False,
-        timeout=30
+        timeout=30,
+        verify=False
     )
 
     return response
 
-# text = return_response().text
-# with open("temp.html", "a", encoding="utf-8") as f:
-#         f.write(f"{text}")
+if __name__ == "__main__":
+    text = return_response().text
+    with open("temp.html", "a", encoding="utf-8") as f:
+            f.write(f"{text}")

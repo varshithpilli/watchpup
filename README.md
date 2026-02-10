@@ -5,6 +5,7 @@ A small Python watchdog script for VTOP data changes. Currently implemented only
 > NOTE: This script currently depends on an active VTOP web session. When your session expires, you must refresh:
 > - VTOP_JSESSIONID
 > - VTOP_CSRF
+> - VTOP_SERVERID
 
 ## Features
 
@@ -19,6 +20,9 @@ pip install -r requirements.txt
 ```
 
 TODO:
+ - [ ] show actual change in the data
+ - [ ] error handlers
  - [ ] automatic cookie fetching
+ - [ ] extend to more than just the marks page
  - [ ] notifying the user
  - [ ] maybe make an exe

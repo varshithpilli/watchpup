@@ -84,7 +84,7 @@ def return_json(response):
         "data": courses
     }
     
-
-# result = return_json()
-# with open("temp.json", "w", encoding="utf-8") as f:
-#     json.dump(result, f, indent=2, ensure_ascii=False)
+if __name__ == "__main__":
+    result = return_json()
+    with open("temp.json", "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)

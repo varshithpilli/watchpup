@@ -1,2 +1,7 @@
 ./venv/Scripts/activate
 pip freeze > requirements.txt
+
+Getting the cookies from VTOP:
+- CSRF: doStudentMarkView -> Payload
+- JSESSIONID: doStudentMarkView -> Headers -> Request Headers -> Cookie (Beginning)
+- SERVERID: doStudentMarkView -> Headers -> Request Headers -> Cookie (End)
