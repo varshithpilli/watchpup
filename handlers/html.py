@@ -4,7 +4,12 @@ import re
 import base64
 from pathlib import Path
 
-
+def check_captcha(text):
+    soup = BeautifulSoup(text, "html.parser")
+    captcha_block = soup.find("div", id="captchaBlock")
+    if captcha_block is None: return False
+    else: return True
+    
 def return_json(response):
     print(f"return_json() called\n\n")
     soup = BeautifulSoup(response.text, "html.parser")

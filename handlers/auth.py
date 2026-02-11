@@ -2,11 +2,15 @@ import requests
 from dotenv import load_dotenv
 import os
 import urllib3
-from html_handling import save_captcha_image, extract_csrf
-from captcha import solve_captcha
+from .html import save_captcha_image, extract_csrf, check_captcha
+from .captcha import solve_captcha
+import time
+
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 load_dotenv()
 
+MAX_RETRIES = eval(os.getenv("MAX_RETIRES"))
 REGD = os.getenv("REGD")
 PASS = os.getenv("PASS")
 
@@ -41,15 +45,23 @@ def get_csrf_auth(username, password):
     )
     r2.raise_for_status()
 
-    r3 = session.get(
-        f"{BASE}/login",
-        headers=headers,
-        timeout=30,
-        verify=False
-    )
-    r3.raise_for_status()
-    
-    save_captcha_image(r3.text)
+
+    for attempt in range(MAX_RETRIES):
+
+        r3 = session.get(
+            f"{BASE}/login",
+            headers=headers,
+            timeout=30,
+            verify=False
+        )
+        r3.raise_for_status()
+
+        if check_captcha(r3.text):
+            save_captcha_image(r3.text)
+            break
+
+        print("captchaBlock not found – retrying...")
+        time.sleep(1)
     
     r4 = session.post(
         f"{BASE}/login",
@@ -76,7 +88,7 @@ def get_csrf_auth(username, password):
     csrf_auth = extract_csrf(r5.text)
     print("csrf_auth:", csrf_auth)
 
-    return csrf_auth
+    return csrf_auth, session
 
 if __name__ == "__main__":
     get_csrf_auth(REGD, PASS)

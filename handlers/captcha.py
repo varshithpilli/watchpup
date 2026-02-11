@@ -1,6 +1,7 @@
 import json
 import math
 from PIL import Image
+from pathlib import Path
 
 LABEL_TXT = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 HEIGHT = 40
@@ -106,7 +107,8 @@ def load_image_rgba_flat(path):
     return flat
 
 def solve_captcha():
-    with open("weights.json", "r", encoding="utf-8") as f:
+    WEIGHTS_PATH = Path(__file__).parent / "weights.json"
+    with open(WEIGHTS_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
     weights = data["weights"]
     biases = data["biases"]

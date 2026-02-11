@@ -2,8 +2,8 @@ import time
 import json
 import hashlib
 from pathlib import Path
-from utils.request_handling import return_response
-from utils.html_handling import return_json
+from handlers.html import return_json
+from handlers.main_request import return_response
 from dotenv import load_dotenv
 import os
 from datetime import datetime
