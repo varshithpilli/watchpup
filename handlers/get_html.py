@@ -53,8 +53,7 @@ url = "https://vtopcc.vit.ac.in/vtop/examinations/doStudentMarkView"
 
 #     return response
 
-def return_response():
-    # print("return_response() called\n")
+def get_marks_html():
 
     headers = {
         "Origin": "https://vtopcc.vit.ac.in",
@@ -79,7 +78,33 @@ def return_response():
 
     return response
 
+
+def get_grades_html():
+
+    headers = {
+        "Origin": "https://vtopcc.vit.ac.in",
+        "Referer": "https://vtopcc.vit.ac.in/vtop/content",
+        "X-Requested-With": "XMLHttpRequest",
+        "User-Agent": "Mozilla/5.0",
+    }
+
+    data = {
+        "authorizedID": REGD,
+        "semesterSubId": SEM,
+        "_csrf": CSRF,
+    }
+
+    response = session.post(
+        "https://vtopcc.vit.ac.in/vtop/examinations/examGradeView/doStudentGradeView",
+        headers=headers,
+        data=data,      # <-- normal form post is enough
+        timeout=30,
+        verify=False
+    )
+
+    return response
+
 if __name__ == "__main__":
-    text = return_response().text
+    text = get_grades_html().text
     with open("temp.html", "a", encoding="utf-8") as f:
             f.write(f"{text}")

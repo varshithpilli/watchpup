@@ -1,6 +1,5 @@
 import json
 import math
-from .html import get_captcha_image
 from PIL import Image
 from pathlib import Path
 import numpy as np

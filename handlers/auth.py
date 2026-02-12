@@ -1,7 +1,7 @@
 import requests
 from dotenv import load_dotenv
 import os
-from .html import get_captcha_image, extract_csrf, check_captcha
+from .parse_html import get_captcha_image, get_csrf, check_captcha
 from .captcha import solve_captcha
 import time
 import urllib3
@@ -30,7 +30,7 @@ def get_csrf_auth(username, password):
         verify=False
     )
     r1.raise_for_status()
-    csrf_unauth = extract_csrf(r1.text)
+    csrf_unauth = get_csrf(r1.text)
     # print("csrf_unauth:", csrf_unauth)
 
     r2 = session.post(
@@ -87,7 +87,7 @@ def get_csrf_auth(username, password):
         verify=False
     )
     r5.raise_for_status()
-    csrf_auth = extract_csrf(r5.text)
+    csrf_auth = get_csrf(r5.text)
     # print("csrf_auth:", csrf_auth)
 
     return csrf_auth, session

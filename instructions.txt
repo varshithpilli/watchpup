@@ -1,6 +1,8 @@
 ./venv/Scripts/activate
 pip freeze > requirements.txt
-
+python -m handlers.get_html
+copy test.json last_state.json ; python watchdog.py
+   
 Getting the cookies from VTOP:
 - CSRF: doStudentMarkView -> Payload
 - JSESSIONID: doStudentMarkView -> Headers -> Request Headers -> Cookie (Beginning)
@@ -12,3 +14,6 @@ Authentication req:
 - CAPTCHA
 
 list of semesters and their mapping: StudentTimeTableChn
+Grades
+GradeHistory
+AcedemicCalender
