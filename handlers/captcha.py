@@ -1,8 +1,9 @@
+import numpy as np
 import json
 import math
 from PIL import Image
 from pathlib import Path
-import numpy as np
+
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 

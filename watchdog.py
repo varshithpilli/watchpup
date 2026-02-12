@@ -3,14 +3,14 @@ import time
 import json
 import hashlib
 from pathlib import Path
-from handlers.parse_html import get_marks_json, get_grades_json
-from handlers.get_html import get_marks_html, get_grades_html
-from dotenv import load_dotenv
-import os
 import requests
 from datetime import datetime
 import logging
+import os
+from dotenv import load_dotenv
 
+from handlers.get_html import get_marks_html, get_grades_html, get_ghist_html
+from handlers.parse_html import get_marks_json, get_grades_json, get_cgpa_json
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -36,21 +36,30 @@ def handle_vtop():
     marks_json = get_marks_json(marks_html)
     grades_html = get_grades_html()
     grades_json = get_grades_json(grades_html)
+    cgpa_html = get_ghist_html()
+    cgpa_json = get_cgpa_json(cgpa_html)
     
     marks_ok = marks_json.get("MARKS_STATUS") == "OK"
     grades_ok = grades_json.get("GRADES_STATUS") == "OK"
+    cgpa_ok = cgpa_json.get("CGPA_STATUS") == "OK"
+    
+    print(marks_ok)
+    print(grades_ok)
+    print(cgpa_json)
+    print()
 
-    global_status = "OK" if (marks_ok and grades_ok) else "ERROR"
+    global_status = "OK" if (marks_ok and grades_ok and cgpa_ok) else "ERROR"
 
     return {
         "STATUS": global_status,
         "data": {
             "marks": marks_json,
-            "grades": grades_json
+            "grades": grades_json,
+            "cgpa": cgpa_json
         }
     }
 
-def get_hash(data) -> str:
+def get_hash(data):
     normalized = json.dumps(data, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
@@ -67,16 +76,7 @@ def save_current(data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def diff_marks(old_state, new_state):
-
-    # Defensive – if parsing failed earlier
-    if (
-        not old_state
-        or not new_state
-        or old_state.get("marks", {}).get("MARKS_STATUS") != "OK"
-        or new_state.get("marks", {}).get("MARKS_STATUS") != "OK"
-    ):
-        return []
-
+    
     old_marks = old_state["marks"].get("marks_data", [])
     new_marks = new_state["marks"].get("marks_data", [])
 
@@ -102,7 +102,6 @@ def diff_marks(old_state, new_state):
 
         course_code, mark_title = key
 
-        # added
         if o is None and n is not None:
             diffs.append({
                 "section": "marks",
@@ -112,7 +111,6 @@ def diff_marks(old_state, new_state):
                 "new": n
             })
 
-        # removed
         elif n is None and o is not None:
             diffs.append({
                 "section": "marks",
@@ -122,7 +120,6 @@ def diff_marks(old_state, new_state):
                 "old": o
             })
 
-        # changed
         elif o is not None and n is not None:
             if o.get("scored_mark") != n.get("scored_mark"):
                 diffs.append({
@@ -137,15 +134,6 @@ def diff_marks(old_state, new_state):
     return diffs
 
 def diff_grades(old_state, new_state):
-
-    # Defensive – if parsing failed or login page returned
-    if (
-        not old_state
-        or not new_state
-        or old_state.get("grades", {}).get("GRADES_STATUS") != "OK"
-        or new_state.get("grades", {}).get("GRADES_STATUS") != "OK"
-    ):
-        return []
 
     old_rows = old_state["grades"].get("grades_data", [])
     new_rows = new_state["grades"].get("grades_data", [])
@@ -169,7 +157,6 @@ def diff_grades(old_state, new_state):
         o = old_map.get(ccode)
         n = new_map.get(ccode)
 
-        # added
         if o is None and n is not None:
             diffs.append({
                 "section": "grades",
@@ -178,7 +165,6 @@ def diff_grades(old_state, new_state):
                 "new": n
             })
 
-        # removed
         elif n is None and o is not None:
             diffs.append({
                 "section": "grades",
@@ -187,7 +173,6 @@ def diff_grades(old_state, new_state):
                 "old": o
             })
 
-        # changed
         elif o is not None and n is not None:
             if (
                 o.get("grade") != n.get("grade")
@@ -210,7 +195,23 @@ def notify(previous, current):
     diffs.extend(diff_marks(previous, current))
     diffs.extend(diff_grades(previous, current))
 
-    if not diffs:
+
+    old_cgpa = None
+    new_cgpa = None
+
+    if previous.get("cgpa", {}).get("CGPA_STATUS") == "OK":
+        old_cgpa = previous["cgpa"].get("cgpa_data")
+
+    if current.get("cgpa", {}).get("CGPA_STATUS") == "OK":
+        new_cgpa = current["cgpa"].get("cgpa_data")
+
+    cgpa_changed = (
+        old_cgpa is not None and
+        new_cgpa is not None and
+        old_cgpa != new_cgpa
+    )
+    
+    if not diffs and not cgpa_changed:
         return
 
     lines = []
@@ -218,8 +219,6 @@ def notify(previous, current):
     lines.append("Change detected\n")
 
     for d in diffs:
-
-        # ---------- marks ----------
         if d["section"] == "marks":
 
             if d["type"] == "changed":
@@ -243,9 +242,7 @@ def notify(previous, current):
                     f'removed = {m["scored_mark"]} / {m["max_mark"]} '
                     f'({m["status"]})'
                 )
-
-
-        # ---------- grades ----------
+                
         elif d["section"] == "grades":
 
             if d["type"] == "changed":
@@ -269,9 +266,10 @@ def notify(previous, current):
                     f'removed = {g["grade"]} ({g["total"]})'
                 )
 
-
+    if cgpa_changed:
+        lines.append(f'[CGPA]: {old_cgpa} → {new_cgpa}')
+        
     msg = "\n".join(lines)
-
     
     payload = {
         "chat_id": CHAT_ID,
@@ -284,7 +282,6 @@ def notify(previous, current):
 def now():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-
 def main():
     previous = load_previous()
 
@@ -293,8 +290,6 @@ def main():
         if previous and previous.get("STATUS") == "OK"
         else None
     )
-
-    # print("Watchdog started...")
 
     while True:
         try:
@@ -307,7 +302,6 @@ def main():
                 time.sleep(INTERVAL_SECONDS)
                 continue
 
-            # hash only the real snapshot
             current_data = current["data"]
             current_fp = get_hash(current_data)
 
@@ -319,12 +313,8 @@ def main():
 
             elif current_fp != previous_fp:
                 logging.info(f"{now()} STATUS: Changes Found")
-
-                # notify using only the data part
                 notify(previous["data"], current_data)
-
                 logging.info(f"{now()} STATUS: Notification sent")
-
                 save_current(current)
                 previous = current
                 previous_fp = current_fp

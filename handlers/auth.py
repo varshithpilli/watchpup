@@ -1,12 +1,13 @@
+import time
 import requests
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+
 from .parse_html import get_captcha_image, get_csrf, check_captcha
 from .captcha import solve_captcha
-import time
+
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 
 load_dotenv()
 
@@ -31,7 +32,6 @@ def get_csrf_auth(username, password):
     )
     r1.raise_for_status()
     csrf_unauth = get_csrf(r1.text)
-    # print("csrf_unauth:", csrf_unauth)
 
     r2 = session.post(
         f"{BASE}/prelogin/setup",
@@ -45,9 +45,7 @@ def get_csrf_auth(username, password):
     )
     r2.raise_for_status()
 
-
     for attempt in range(MAX_RETRIES):
-
         r3 = session.get(
             f"{BASE}/login",
             headers=headers,
@@ -59,8 +57,6 @@ def get_csrf_auth(username, password):
         if check_captcha(r3.text):
             img = get_captcha_image(r3.text)
             break
-
-        print("captchaBlock not found – retrying...")
         time.sleep(1)
         
     captchaString = solve_captcha(img)
@@ -88,7 +84,6 @@ def get_csrf_auth(username, password):
     )
     r5.raise_for_status()
     csrf_auth = get_csrf(r5.text)
-    # print("csrf_auth:", csrf_auth)
 
     return csrf_auth, session
 

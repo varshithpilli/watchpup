@@ -17,3 +17,12 @@ list of semesters and their mapping: StudentTimeTableChn
 Grades
 GradeHistory
 AcedemicCalender
+
+tests:
+- marks removed
+- marks added
+- marks modified
+- grade removed
+- grade added
+- grade modified
+- cgpa modified

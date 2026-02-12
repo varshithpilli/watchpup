@@ -16,6 +16,18 @@
           "course_mode": "SBC01",
           "marks": [
             {
+              "sl_no": "1",
+              "mark_title": "Assessment - 1",
+              "max_mark": "15",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "15.0",
+              "weightage_mark": "15",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            },
+            {
               "sl_no": "2",
               "mark_title": "Assessment - 2",
               "max_mark": "15",
@@ -79,18 +91,6 @@
             {
               "sl_no": "1",
               "mark_title": "Assessment - 1",
-              "max_mark": "10",
-              "weightage_percent": "10",
-              "status": "Present",
-              "scored_mark": "8.0",
-              "weightage_mark": "8",
-              "class_average": "",
-              "mark_posted_strength": "",
-              "remark": ""
-            },
-            {
-              "sl_no": "10",
-              "mark_title": "Assessment - 10",
               "max_mark": "10",
               "weightage_percent": "10",
               "status": "Present",
@@ -203,7 +203,7 @@
               "max_mark": "50",
               "weightage_percent": "15",
               "status": "Present",
-              "scored_mark": "10.0",
+              "scored_mark": "40.0",
               "weightage_mark": "12",
               "class_average": "",
               "mark_posted_strength": "",
@@ -709,6 +709,91 @@
           ]
         },
         {
+          "sl_no": "81",
+          "class_nbr": "CH20252101801",
+          "course_code": "BEE303L",
+          "course_title": "Corol Systems",
+          "course_type": "Theory Only",
+          "course_system": "CBCS",
+          "faculty": "FEBIN DAYA J L",
+          "slot": "A2+T2",
+          "course_mode": "CBL",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "40.0",
+              "weightage_mark": "12",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            },
+            {
+              "sl_no": "2",
+              "mark_title": "Continuous Assessment Test - II",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "45.0",
+              "weightage_mark": "13.5",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            },
+            {
+              "sl_no": "3",
+              "mark_title": "Digital Assignment - I",
+              "max_mark": "10",
+              "weightage_percent": "10",
+              "status": "Present",
+              "scored_mark": "10.0",
+              "weightage_mark": "10",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            },
+            {
+              "sl_no": "4",
+              "mark_title": "Digital Assignment - II",
+              "max_mark": "10",
+              "weightage_percent": "10",
+              "status": "Present",
+              "scored_mark": "10.0",
+              "weightage_mark": "10",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            },
+            {
+              "sl_no": "5",
+              "mark_title": "Digital Assignment - III",
+              "max_mark": "10",
+              "weightage_percent": "10",
+              "status": "Present",
+              "scored_mark": "10.0",
+              "weightage_mark": "10",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            },
+            {
+              "sl_no": "6",
+              "mark_title": "Final Assessment Test",
+              "max_mark": "100",
+              "weightage_percent": "40",
+              "status": "Present",
+              "scored_mark": "69.0",
+              "weightage_mark": "27.6",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
+          ]
+        },
+        {
           "sl_no": "9",
           "class_nbr": "CH2025260101454",
           "course_code": "BCSE204P",
@@ -875,6 +960,18 @@
               "class_average": "",
               "mark_posted_strength": "",
               "remark": ""
+            },
+            {
+              "sl_no": "10",
+              "mark_title": "Final Assessment Tt",
+              "max_mark": "100",
+              "weightage_percent": "40",
+              "status": "Present",
+              "scored_mark": "70.0",
+              "weightage_mark": "28",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
             }
           ]
         },
@@ -1008,18 +1105,6 @@
               "class_average": "",
               "mark_posted_strength": "",
               "remark": ""
-            },
-            {
-              "sl_no": "11",
-              "mark_title": "Final Assessment Test",
-              "max_mark": "50",
-              "weightage_percent": "40",
-              "status": "Present",
-              "scored_mark": "47.0",
-              "weightage_mark": "37.6",
-              "class_average": "",
-              "mark_posted_strength": "",
-              "remark": ""
             }
           ]
         },
@@ -1040,7 +1125,7 @@
               "max_mark": "50",
               "weightage_percent": "15",
               "status": "Present",
-              "scored_mark": "41.0",
+              "scored_mark": "4.0",
               "weightage_mark": "12.3",
               "class_average": "",
               "mark_posted_strength": "",
@@ -1154,22 +1239,22 @@
           "grade": "A"
         },
         {
-          "sl_no": "5",
-          "course_code": "BCSE355L",
-          "course_title": "Cloud Architecture Design",
-          "course_type": "Theory Only",
-          "credit_l": "3",
-          "credit_p": "0",
+          "sl_no": "4",
+          "course_code": "BCSE301P",
+          "course_title": "Software Engineering Lab",
+          "course_type": "Lab Only",
+          "credit_l": "0",
+          "credit_p": "1",
           "credit_j": "0",
-          "credit_c": "3",
-          "grading_type": "RG",
-          "total": "85",
+          "credit_c": "1",
+          "grading_type": "AG",
+          "total": "92",
           "grade": "S"
         },
         {
-          "sl_no": "50",
-          "course_code": "BCE355L",
-          "course_title": "Cloud  Design",
+          "sl_no": "5",
+          "course_code": "BCSE355L",
+          "course_title": "Cloud Architecture Design",
           "course_type": "Theory Only",
           "credit_l": "3",
           "credit_p": "0",
@@ -1203,7 +1288,7 @@
           "credit_c": "1",
           "grading_type": "AG",
           "total": "89",
-          "grade": "T"
+          "grade": "A"
         },
         {
           "sl_no": "8",
@@ -1242,7 +1327,7 @@
           "credit_c": "3",
           "grading_type": "RG",
           "total": "76",
-          "grade": "A"
+          "grade": "G"
         },
         {
           "sl_no": "11",
@@ -1259,18 +1344,22 @@
         },
         {
           "sl_no": "12",
-          "course_code": "BSTS301P",
-          "course_title": "Advanced Competitive Coding – I",
-          "course_type": "Soft Skill",
-          "credit_l": "1.5",
+          "course_code": "BSSC10",
+          "course_title": "Indian Constution",
+          "course_type": "Online Course",
+          "credit_l": "0",
           "credit_p": "0",
           "credit_j": "0",
-          "credit_c": "1.5",
+          "credit_c": "2",
           "grading_type": "AG",
-          "total": "100",
-          "grade": "S"
+          "total": "9",
+          "grade": "P"
         }
       ]
+    },
+    "cgpa": {
+      "CGPA_STATUS": "OK",
+      "cgpa_data": "9.00"
     }
   }
 }

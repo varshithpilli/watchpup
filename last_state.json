@@ -1271,6 +1271,10 @@
           "grade": "S"
         }
       ]
+    },
+    "cgpa": {
+      "CGPA_STATUS": "OK",
+      "cgpa_data": "9.04"
     }
   }
 }
