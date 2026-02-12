@@ -8,6 +8,18 @@ from dotenv import load_dotenv
 import os
 import requests
 from datetime import datetime
+import logging
+
+
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+logging.basicConfig(
+    filename="watchpup.log",
+    filemode="a",
+    level=logging.INFO,
+    format="%(message)s"
+)
 
 load_dotenv()
 
@@ -92,22 +104,22 @@ def notify(previous, current):
     if not diffs:
         return
 
-    print("================================================================")
-    for d in diffs:
-        if d["type"] == "changed":
-            print(
-                f'[{d["course_code"]}] {d["mark_title"]}: '
-                f'{d["old_scored"]} -> {d["new_scored"]}'
-            )
-        elif d["type"] == "added":
-            print(
-                f'[{d["course_code"]}] {d["mark_title"]}: added'
-            )
-        elif d["type"] == "removed":
-            print(
-                f'[{d["course_code"]}] {d["mark_title"]}: removed'
-            )
-    print("================================================================")
+    # print("================================================================")
+    # for d in diffs:
+    #     if d["type"] == "changed":
+    #         print(
+    #             f'[{d["course_code"]}] {d["mark_title"]}: '
+    #             f'{d["old_scored"]} -> {d["new_scored"]}'
+    #         )
+    #     elif d["type"] == "added":
+    #         print(
+    #             f'[{d["course_code"]}] {d["mark_title"]}: added'
+    #         )
+    #     elif d["type"] == "removed":
+    #         print(
+    #             f'[{d["course_code"]}] {d["mark_title"]}: removed'
+    #         )
+    # print("================================================================")
 
     lines = []
     lines.append("VTOP Watchdog")
@@ -153,37 +165,39 @@ def main():
         else None
     )
 
-    print("Watchdog started...")
+    # print("Watchdog started...")
 
     while True:
         try:
             current = handle_vtop()
 
             if current.get("STATUS") != "OK":
-                print(now(), "STATUS:", current.get("STATUS"))
+                logging.info(f"{now()} STATUS: {current.get("STATUS")}")
+                print()
                 time.sleep(INTERVAL_SECONDS)
                 continue
 
             current_fp = get_hash(current["data"])
 
             if previous_fp is None:
-                print(now(), "STATUS: Initialised")
+                logging.info(f"{now()} STATUS: Initialised")
                 save_current(current)
                 previous = current
                 previous_fp = current_fp
 
             elif current_fp != previous_fp:
-                print(now(), "STATUS: Changes Found")
+                logging.info(f"{now()} STATUS: Changes Found")
                 notify(previous, current)
+                logging.info(f"{now()} STATUS: Notification sent")
                 save_current(current)
                 previous = current
                 previous_fp = current_fp
 
             else:
-                print(now(), "STATUS: No Change")
+                logging.info(f"{now()} STATUS: No Change")
 
         except Exception as e:
-            print(now(), "Error while checking:", e)
+            logging.info(f"{now()} STATUS: Error while checking: {e}")
 
         time.sleep(INTERVAL_SECONDS)
 

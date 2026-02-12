@@ -17,3 +17,4 @@ temp.txt
 *.png
 last_state.json
 test.json
+watchpup.log

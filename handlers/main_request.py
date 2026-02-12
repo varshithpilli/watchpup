@@ -5,6 +5,7 @@ from .auth import get_csrf_auth
 import os
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 load_dotenv()
 
 JSESSIONID = os.getenv("VTOP_JSESSIONID")
@@ -53,7 +54,7 @@ url = "https://vtopcc.vit.ac.in/vtop/examinations/doStudentMarkView"
 #     return response
 
 def return_response():
-    print("return_response() called\n")
+    # print("return_response() called\n")
 
     headers = {
         "Origin": "https://vtopcc.vit.ac.in",

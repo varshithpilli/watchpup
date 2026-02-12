@@ -2,7 +2,11 @@ from bs4 import BeautifulSoup
 import json
 import re
 import base64
+from io import BytesIO
+from PIL import Image
 from pathlib import Path
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def check_captcha(text):
     soup = BeautifulSoup(text, "html.parser")
@@ -11,7 +15,7 @@ def check_captcha(text):
     else: return True
     
 def return_json(response):
-    print(f"return_json() called\n\n")
+    # print(f"return_json() called\n\n")
     soup = BeautifulSoup(response.text, "html.parser")
 
     if response.status_code != 200:
@@ -93,8 +97,8 @@ def return_json(response):
         "data": courses
     }
 
-def save_captcha_image(text):
-    print("save_captcha_image() called\n\n")
+def get_captcha_image(text):
+    # print("save_captcha_image() called\n\n")
     soup = BeautifulSoup(text, "html.parser")
         
     captcha_block = soup.find("div", id="captchaBlock")
@@ -106,8 +110,13 @@ def save_captcha_image(text):
             if src.startswith("data:image"):
                 header, encoded = src.split(",", 1)
                 data = base64.b64decode(encoded)
-                captcha_file = Path("captcha.jpg")
-                captcha_file.write_bytes(data)
+                
+                img_bytes = BytesIO(data)
+                img = Image.open(img_bytes).convert("RGB")
+                
+                return img
+                # captcha_file = Path("captcha.jpg")
+                # captcha_file.write_bytes(data)
             else:
                 if src.startswith("/"):
                     src = "https://vtopcc.vit.ac.in" + src
@@ -119,14 +128,14 @@ def save_captcha_image(text):
                 )
 
                 img_resp.raise_for_status()
+                
+                img_bytes = BytesIO(data)
+                img = Image.open(img_bytes).convert("RGB")
+                
+                return img
+                # captcha_file = Path("captcha.jpg")
+                # captcha_file.write_bytes(img_resp.content)
 
-                captcha_file = Path("captcha.jpg")
-                captcha_file.write_bytes(img_resp.content)
-
-    if captcha_file:
-        print("Captcha saved as:", captcha_file.resolve())
-    else:
-        print("No captcha image found (probably no-captcha flow)")
 
 def extract_csrf(html):
     m = re.search(

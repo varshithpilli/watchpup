@@ -1,7 +1,11 @@
 import json
 import math
+from .html import get_captcha_image
 from PIL import Image
 from pathlib import Path
+import numpy as np
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 LABEL_TXT = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 HEIGHT = 40
@@ -94,25 +98,18 @@ def C_Blocks(im):
         blocksList[a] = block
     return blocksList
 
-def load_image_rgba_flat(path):
-    img = Image.open(path).convert("RGBA")
-    img = img.resize((WIDTH, HEIGHT))
-    pixels = list(img.getdata())
-    flat = []
-    for (r, g, b, a) in pixels:
-        flat.append(r)
-        flat.append(g)
-        flat.append(b)
-        flat.append(a)
-    return flat
+def load_image_rgba_flat_from_pil(img):
+    img = img.convert("RGBA")
+    arr = np.asarray(img, dtype=np.uint8)
+    return arr.reshape(-1).tolist()
 
-def solve_captcha():
+def solve_captcha(img):
     WEIGHTS_PATH = Path(__file__).parent / "weights.json"
     with open(WEIGHTS_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
     weights = data["weights"]
     biases = data["biases"]
-    flat_rgba = load_image_rgba_flat("captcha.jpg")
+    flat_rgba = load_image_rgba_flat_from_pil(img)
     sat = saturation(flat_rgba)
     img2d = deflatten(sat, (HEIGHT, WIDTH))
     blocks = C_Blocks(img2d)
