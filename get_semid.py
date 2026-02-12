@@ -9,7 +9,7 @@ load_dotenv()
 REGD = os.getenv("REGD")
 PASS = os.getenv("PASS")
 
-CSRF, session = get_csrf_auth(REGD, PASS)
+CSRF, session = get_csrf_auth()
 
 url = "https://vtopcc.vit.ac.in/vtop/academics/common/StudentTimeTableChn"
 

@@ -137,4 +137,4 @@ if __name__ == "__main__":
     #         f.write(f"{text}")
     text = get_calendar_html()
     with open("temp.html", "w", encoding="utf-8") as f:
-            f.write(f"{"".join(text)}")
+            f.write(text)
