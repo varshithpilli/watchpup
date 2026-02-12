@@ -9,8 +9,8 @@ import logging
 import os
 from dotenv import load_dotenv
 
-from handlers.get_html import get_marks_html, get_grades_html, get_ghist_html
-from handlers.parse_html import get_marks_json, get_grades_json, get_cgpa_json
+from handlers.get_html import get_marks_html, get_grades_html, get_ghist_html, logout, get_calendar_html
+from handlers.parse_html import get_marks_json, get_grades_json, get_cgpa_json, get_calendar_json
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -38,15 +38,12 @@ def handle_vtop():
     grades_json = get_grades_json(grades_html)
     cgpa_html = get_ghist_html()
     cgpa_json = get_cgpa_json(cgpa_html)
+    calendar_html = get_calendar_html()
+    calendar_json = get_calendar_json(calendar_html)
     
     marks_ok = marks_json.get("MARKS_STATUS") == "OK"
     grades_ok = grades_json.get("GRADES_STATUS") == "OK"
     cgpa_ok = cgpa_json.get("CGPA_STATUS") == "OK"
-    
-    print(marks_ok)
-    print(grades_ok)
-    print(cgpa_json)
-    print()
 
     global_status = "OK" if (marks_ok and grades_ok and cgpa_ok) else "ERROR"
 
@@ -55,7 +52,8 @@ def handle_vtop():
         "data": {
             "marks": marks_json,
             "grades": grades_json,
-            "cgpa": cgpa_json
+            "cgpa": cgpa_json,
+            "calendar": calendar_json
         }
     }
 
@@ -132,6 +130,45 @@ def diff_marks(old_state, new_state):
                 })
 
     return diffs
+
+def normalize_calendar(cal):
+    out = {}
+
+    for m in cal:
+        month = m["month"]
+
+        for d in m["days"]:
+            key = f"{month}-{d['day']:02d}"
+            out[key] = sorted(d.get("events", []))
+
+    return out
+
+def diff_calendar(old_cal, new_cal):
+    old_map = normalize_calendar(old_cal)
+    new_map = normalize_calendar(new_cal)
+
+    changes = []
+
+    common_keys = set(old_map) & set(new_map)
+
+    for k in sorted(common_keys):
+        old_events = old_map[k]
+        new_events = new_map[k]
+
+        if old_events == new_events:
+            continue
+
+        added = sorted(set(new_events) - set(old_events))
+        removed = sorted(set(old_events) - set(new_events))
+
+        if added or removed:
+            changes.append({
+                "date": k,
+                "added": added,
+                "removed": removed
+            })
+
+    return changes
 
 def diff_grades(old_state, new_state):
 
@@ -211,7 +248,12 @@ def notify(previous, current):
         old_cgpa != new_cgpa
     )
     
-    if not diffs and not cgpa_changed:
+    calendar_diffs = diff_calendar(
+        previous.get("calendar", []),
+        current.get("calendar", [])
+    )
+   
+    if not diffs and not cgpa_changed and not calendar_diffs:
         return
 
     lines = []
@@ -269,7 +311,39 @@ def notify(previous, current):
     if cgpa_changed:
         lines.append(f'[CGPA]: {old_cgpa} → {new_cgpa}')
         
+    for c in calendar_diffs:
+        raw_date = c["date"]
+
+        try:
+            dt = datetime.strptime(raw_date, "%B %Y-%d")
+            pretty_date = dt.strftime("%d-%m-%Y %A")
+        except Exception:
+            pretty_date = raw_date
+
+        added = c.get("added", [])
+        removed = c.get("removed", [])
+
+        if added and removed:
+            for old, new in zip(removed, added):
+                lines.append(
+                    f'[CALENDAR] {pretty_date}: "{old}" → "{new}"'
+                )
+
+        elif added:
+            for e in added:
+                lines.append(
+                    f'[CALENDAR] {pretty_date}: added "{e}"'
+                )
+
+        elif removed:
+            for e in removed:
+                lines.append(
+                    f'[CALENDAR] {pretty_date}: removed "{e}"'
+                )
+
     msg = "\n".join(lines)
+    
+    print(msg)
     
     payload = {
         "chat_id": CHAT_ID,
@@ -321,6 +395,8 @@ def main():
 
             else:
                 logging.info(f"{now()} STATUS: No Change")
+            
+            logout()
 
         except Exception:
             logging.error(traceback.format_exc())

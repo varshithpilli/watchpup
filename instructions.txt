@@ -26,3 +26,4 @@ tests:
 - grade added
 - grade modified
 - cgpa modified
+- calendar modified

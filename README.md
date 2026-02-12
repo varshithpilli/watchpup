@@ -39,6 +39,6 @@ TODO:
  - [X] automatic cookie fetching (gotta deal with captcha)
  - [X] notifying the user
  - [X] automatic sem id maybe
- - [ ] extend to more than just the marks page (~~grades~~, ~~cgpa~~, calendar)
+ - [X] extend to more than just the marks page (~~grades~~, ~~cgpa~~, ~~calendar~~)
  - [ ] error handlers
  - [ ] maybe make an exe

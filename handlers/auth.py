@@ -17,7 +17,7 @@ PASS = os.getenv("PASS")
 
 BASE = "https://vtopcc.vit.ac.in/vtop"
 
-def get_csrf_auth(username, password):
+def get_csrf_auth():
     session = requests.Session()
     headers = {
         "User-Agent": "Mozilla/5.0",
@@ -65,8 +65,8 @@ def get_csrf_auth(username, password):
         f"{BASE}/login",
         data={
             "_csrf": csrf_unauth,
-            "username": username,
-            "password": password,
+            "username": REGD,
+            "password": PASS,
             "captchaStr": captchaString
         },
         headers=headers,
