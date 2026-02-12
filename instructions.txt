@@ -35,3 +35,6 @@ tests:
 - grade modified
 - cgpa modified
 - calendar modified
+
+
+grades returns Error in the beginning of the semester when no grades are released. Probably the same with marks too.
