@@ -17,29 +17,66 @@ CHAT_ID = os.getenv("TG_CHAT_ID")
 STATE_FILE = Path("./static/last_state.json")
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
+# def handle_vtop():
+#     marks_html = get_marks_html()
+#     marks_json = get_marks_json(marks_html)
+#     grades_html = get_grades_html()
+#     grades_json = get_grades_json(grades_html)
+#     cgpa_html = get_ghist_html()
+#     cgpa_json = get_cgpa_json(cgpa_html)
+#     calendar_html = get_calendar_html()
+#     calendar_json = get_calendar_json(calendar_html)
+    
+#     marks_ok = marks_json.get("MARKS_STATUS") == "OK"
+#     grades_ok = grades_json.get("GRADES_STATUS") == "OK"
+#     cgpa_ok = cgpa_json.get("CGPA_STATUS") == "OK"
+
+#     global_status = "OK" if (marks_ok and grades_ok and cgpa_ok) else "ERROR"
+
+#     return {
+#         "STATUS": global_status,
+#         "data": {
+#             "marks": marks_json,
+#             "grades": grades_json,
+#             "cgpa": cgpa_json,
+#             "calendar": calendar_json
+#         }
+#     }
+
 def handle_vtop():
     marks_html = get_marks_html()
     marks_json = get_marks_json(marks_html)
+
     grades_html = get_grades_html()
     grades_json = get_grades_json(grades_html)
+
     cgpa_html = get_ghist_html()
     cgpa_json = get_cgpa_json(cgpa_html)
+
     calendar_html = get_calendar_html()
     calendar_json = get_calendar_json(calendar_html)
-    
-    marks_ok = marks_json.get("MARKS_STATUS") == "OK"
-    grades_ok = grades_json.get("GRADES_STATUS") == "OK"
-    cgpa_ok = cgpa_json.get("CGPA_STATUS") == "OK"
 
-    global_status = "OK" if (marks_ok and grades_ok and cgpa_ok) else "ERROR"
+    marks_ok = isinstance(marks_json, dict) and marks_json.get("MARKS_STATUS") == "OK"
+    grades_ok = isinstance(grades_json, dict) and grades_json.get("GRADES_STATUS") == "OK"
+    cgpa_ok   = isinstance(cgpa_json, dict)   and cgpa_json.get("CGPA_STATUS") == "OK"
+    cal_ok    = isinstance(calendar_json, list)
+
+    # at least one section must be usable
+    global_status = "OK" if (marks_ok or grades_ok or cgpa_ok or cal_ok) else "ERROR"
 
     return {
         "STATUS": global_status,
+        "section_status": {
+            "marks": marks_ok,
+            "grades": grades_ok,
+            "cgpa": cgpa_ok,
+            "calendar": cal_ok
+        },
         "data": {
-            "marks": marks_json,
-            "grades": grades_json,
-            "cgpa": cgpa_json,
-            "calendar": calendar_json
+            "marks": marks_json if marks_ok else {"MARKS_STATUS": "ERROR"},
+            "grades": grades_json if grades_ok else {"GRADES_STATUS": "ERROR"},
+            "cgpa": cgpa_json if cgpa_ok else {"CGPA_STATUS": "ERROR"},
+            "calendar": calendar_json if cal_ok else []
         }
     }
 
