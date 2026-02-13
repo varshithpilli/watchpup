@@ -10,18 +10,6 @@ if getattr(sys, "frozen", False):
 else:
     BASE_DIR = Path(__file__).parent
 
-
-
-# from dotenv import load_dotenv
-# load_dotenv(BASE_DIR / ".env")
-# REGD = os.getenv("REGD")
-# PASS = os.getenv("PASS")
-# VTOP_SEMID = os.getenv("VTOP_SEMID")
-# MAX_RETIRES=os.getenv("MAX_RETIRES")
-# TG_BOT_TOKEN=os.getenv("TG_BOT_TOKEN")
-# TG_CHAT_ID=os.getenv("TG_CHAT_ID")
-
-
 REGD = os.environ.get("REGD")
 PASS = os.environ.get("PASS")
 VTOP_SEMID = os.environ.get("VTOP_SEMID")

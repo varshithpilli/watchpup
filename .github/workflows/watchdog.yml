@@ -8,7 +8,7 @@ on:
 jobs:
   watchdog:
     runs-on: ubuntu-latest
-    # environment: runner
+    # environment: xxxxxxxxxxxx
 
     steps:
       - uses: actions/checkout@v4
@@ -29,10 +29,4 @@ jobs:
           MAX_RETIRES: ${{ secrets.MAX_RETIRES }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          # REGD: ${{ vars.REGD }}
-          # PASS: ${{ vars.PASS }}
-          # VTOP_SEMID: ${{ vars.VTOP_SEMID }}
-          # MAX_RETIRES: ${{ vars.MAX_RETIRES }}
-          # TG_CHAT_ID: ${{ vars.TG_CHAT_ID }}
-          # TG_BOT_TOKEN: ${{ vars.TG_BOT_TOKEN }}
         run: python main.py
