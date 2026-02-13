@@ -41,7 +41,18 @@ grades returns Error in the beginning of the semester when no grades are release
 1..20 | ForEach-Object { (Measure-Command { python main.py ; Start-Sleep -Seconds 5 }).TotalSeconds } | Measure-Object -Average -Minimum -Maximum -Sum
 
 pyinstaller --onefile --name watchpup  --add-data "handlers\weights.json;handlers" watchdog.py
+pyinstaller --onefile --name helper  --add-data "handlers\weights.json;handlers" get_semid.py
 
+./dist/./watchpup.exe
 
 bugs:
 - false notification firing
+
+
+exe release
+- exe file
+- setup file for getting the semester
+- .env.example
+
+
+git push origin exec

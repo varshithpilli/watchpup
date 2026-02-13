@@ -1,0 +1,39 @@
+name: Build and release (exec tag)
+
+on:
+  push:
+    tags:
+      - exec
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build executables
+        run: |
+          pyinstaller --onefile --name watchpup --add-data "handlers\weights.json;handlers" watchdog.py
+          pyinstaller --onefile --name helper   --add-data "handlers\weights.json;handlers" get_semid.py
+
+      - name: Copy env example to dist
+        run: |
+          copy .env.example dist\.env.example
+
+      - name: Create GitHub release and upload dist
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*

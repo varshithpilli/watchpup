@@ -18,4 +18,4 @@ test.json
 watchpup.log
 
 temp.*
-watchpup.spec
+*.spec

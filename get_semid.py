@@ -15,8 +15,9 @@ from handlers.auth import get_csrf_auth
 
 REGD = os.getenv("REGD")
 PASS = os.getenv("PASS")
+MAX_RETIRES = os.getenv("MAX_RETIRES")
 
-CSRF, session = get_csrf_auth()
+CSRF, session = get_csrf_auth(REGD, PASS, MAX_RETIRES)
 
 url = "https://vtopcc.vit.ac.in/vtop/academics/common/StudentTimeTableChn"
 

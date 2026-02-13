@@ -24,7 +24,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 logging.basicConfig(
-    filename=str(BASE_DIR / "watchpup.log"),
+    filename = str(Path.home() / ".watchpup" / "watchpup.log"),
     filemode="a",
     level=logging.INFO,
     format="%(message)s"
