@@ -66,5 +66,7 @@ TODO:
  - [X] notifying the user
  - [X] automatic sem id maybe
  - [X] extend to more than just the marks page (~~grades~~, ~~cgpa~~, ~~calendar~~)
- - [ ] error handlers
+ - [ ] send the sub name instead of sub code
  - [ ] maybe make an exe
+ - [ ] something so the user doesnt have to run get_semid
+ - [ ] error handlers
