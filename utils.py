@@ -5,7 +5,15 @@ import json
 import hashlib
 from datetime import datetime
 import requests
+import sys
 
+if getattr(sys, "frozen", False):
+    base_dir = Path(sys.executable).parent
+else:
+    base_dir = Path(__file__).parent
+
+load_dotenv(base_dir / ".env")
+print(f"ENV: {base_dir}")
 from handlers.get_html import get_marks_html, get_grades_html, get_ghist_html, logout, get_calendar_html
 from handlers.parse_html import get_marks_json, get_grades_json, get_cgpa_json, get_calendar_json
 
@@ -14,7 +22,14 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 BOT_TOKEN = os.getenv("TG_BOT_TOKEN")
 CHAT_ID = os.getenv("TG_CHAT_ID")
-STATE_FILE = Path("./static/last_state.json")
+
+STATE_FILE = Path.home() / ".watchpup" / "last_saved.json"
+STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+print(f"STATE: {STATE_FILE}")
+
+
+# STATE_FILE = Path("./static/last_state.json")
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
 # def handle_vtop():

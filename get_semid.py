@@ -1,10 +1,17 @@
 from bs4 import BeautifulSoup
 import os
 from dotenv import load_dotenv
+from pathlib import Path
+import sys
+
+if getattr(sys, "frozen", False):
+    base_dir = Path(sys.executable).parent
+else:
+    base_dir = Path(__file__).parent
+
+load_dotenv(base_dir / ".env")
 
 from handlers.auth import get_csrf_auth
-
-load_dotenv()
 
 REGD = os.getenv("REGD")
 PASS = os.getenv("PASS")

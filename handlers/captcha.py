@@ -1,6 +1,7 @@
 import numpy as np
 import json
 import math
+import sys
 from PIL import Image
 from pathlib import Path
 
@@ -103,8 +104,16 @@ def load_image_rgba_flat_from_pil(img):
     arr = np.asarray(img, dtype=np.uint8)
     return arr.reshape(-1).tolist()
 
+def resource_path(rel_path):
+    if hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS) / rel_path
+    return Path(rel_path)
+
 def solve_captcha(img):
-    WEIGHTS_PATH = Path(__file__).parent / "weights.json"
+    # WEIGHTS_PATH = Path(__file__).parent / "weights.json"
+    WEIGHTS_PATH = resource_path("handlers/weights.json")
+    print(f"WEIGHTS: {WEIGHTS_PATH}")
+    
     with open(WEIGHTS_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
     weights = data["weights"]

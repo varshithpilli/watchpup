@@ -2,14 +2,21 @@ import time
 import requests
 import os
 from dotenv import load_dotenv
+from pathlib import Path
+import sys
+
+if getattr(sys, "frozen", False):
+    base_dir = Path(sys.executable).parent
+else:
+    base_dir = Path(__file__).parent
+
+load_dotenv(base_dir / ".env")
 
 from .parse_html import get_captcha_image, get_csrf, check_captcha
 from .captcha import solve_captcha
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-load_dotenv()
 
 MAX_RETIRES = int(os.getenv("MAX_RETIRES"))
 # MAX_RETIRES = 10

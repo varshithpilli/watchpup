@@ -3,6 +3,15 @@ import time
 import logging
 import os
 from dotenv import load_dotenv
+from pathlib import Path
+import sys
+
+if getattr(sys, "frozen", False):
+    BASE_DIR = Path(sys.executable).parent
+else:
+    BASE_DIR = Path(__file__).parent
+
+load_dotenv(BASE_DIR / ".env")
 
 from utils import handle_vtop, get_hash, load_previous, save_current, diff_calendar, diff_grades, diff_marks, notify, now
 from handlers.get_html import logout
@@ -11,13 +20,11 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 logging.basicConfig(
-    filename="watchpup.log",
+    filename=str(BASE_DIR / "watchpup.log"),
     filemode="a",
     level=logging.INFO,
     format="%(message)s"
 )
-
-load_dotenv()
 
 INTERVAL_SECONDS = eval(os.getenv("INTERVAL_SECONDS"))
 
