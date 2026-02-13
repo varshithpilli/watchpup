@@ -8,7 +8,7 @@ on:
 jobs:
   watchdog:
     runs-on: ubuntu-latest
-    environment: runner
+    # environment: runner
 
     steps:
       - uses: actions/checkout@v4
