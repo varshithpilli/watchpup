@@ -96,18 +96,6 @@
           "slot": "F2+TF2",
           "course_mode": "CBL09",
           "marks": [
-            {
-              "sl_no": "1",
-              "mark_title": "Continuous Assessment Test - I",
-              "max_mark": "50",
-              "weightage_percent": "15",
-              "status": "Present",
-              "scored_mark": "40.5",
-              "weightage_mark": "12.15",
-              "class_average": "",
-              "mark_posted_strength": "",
-              "remark": ""
-            }
           ]
         }
       ]
