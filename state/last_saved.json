@@ -1,0 +1,1108 @@
+{
+  "STATUS": "OK",
+  "section_status": {
+    "marks": true,
+    "grades": false,
+    "cgpa": true,
+    "calendar": true
+  },
+  "data": {
+    "marks": {
+      "MARKS_STATUS": "OK",
+      "marks_data": [
+        {
+          "sl_no": "1",
+          "class_nbr": "CH2025260500041",
+          "course_code": "BSTS302P",
+          "course_title": "Advanced Competitive Coding - II",
+          "course_type": "Soft Skill",
+          "course_system": "CBCS",
+          "faculty": "ETHNUS (APT)",
+          "slot": "B2+TB2",
+          "course_mode": "SBC01",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "30",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "30.0",
+              "weightage_mark": "15",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": "CAT1-Examly MARKS UPLOAD"
+            }
+          ]
+        },
+        {
+          "sl_no": "2",
+          "class_nbr": "CH2025260503337",
+          "course_code": "BCSE209L",
+          "course_title": "Machine Learning",
+          "course_type": "Theory Only",
+          "course_system": "CBCS",
+          "faculty": "SRIDEVI S",
+          "slot": "G2+TG2",
+          "course_mode": "CBL09",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "39.5",
+              "weightage_mark": "11.85",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
+          ]
+        },
+        {
+          "sl_no": "3",
+          "class_nbr": "CH2025260503112",
+          "course_code": "BCSE305L",
+          "course_title": "Embedded Systems",
+          "course_type": "Theory Only",
+          "course_system": "CBCS",
+          "faculty": "GUGA PRIYA G",
+          "slot": "A2+TA2",
+          "course_mode": "CBL09",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "33.0",
+              "weightage_mark": "9.9",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
+          ]
+        },
+        {
+          "sl_no": "4",
+          "class_nbr": "CH2025260501686",
+          "course_code": "BCSE307L",
+          "course_title": "Compiler Design",
+          "course_type": "Theory Only",
+          "course_system": "CBCS",
+          "faculty": "INDIRA B",
+          "slot": "F2+TF2",
+          "course_mode": "CBL09",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "40.5",
+              "weightage_mark": "12.15",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
+          ]
+        }
+      ]
+    },
+    "grades": {
+      "GRADES_STATUS": "ERROR"
+    },
+    "cgpa": {
+      "CGPA_STATUS": "OK",
+      "cgpa_data": "9.04"
+    },
+    "calendar": [
+      {
+        "month": "DECEMBER 2025",
+        "days": [
+          {
+            "day": 1,
+            "events": []
+          },
+          {
+            "day": 2,
+            "events": []
+          },
+          {
+            "day": 3,
+            "events": []
+          },
+          {
+            "day": 4,
+            "events": [
+              "Instructional Day",
+              "(FID/ Working Day / Add & Drop)"
+            ]
+          },
+          {
+            "day": 5,
+            "events": [
+              "Instructional Day",
+              "(Working Day / Add & Drop)"
+            ]
+          },
+          {
+            "day": 6,
+            "events": [
+              "No Instructional Day",
+              "(Add & Drop)"
+            ]
+          },
+          {
+            "day": 7,
+            "events": []
+          },
+          {
+            "day": 8,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 9,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 10,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 11,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 12,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 13,
+            "events": [
+              "Instructional Day",
+              "(Instructional Day / Thursday Day Order)"
+            ]
+          },
+          {
+            "day": 14,
+            "events": []
+          },
+          {
+            "day": 15,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 16,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 17,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 18,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 19,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 20,
+            "events": [
+              "Instructional Day",
+              "(Instructional Day / Friday Day Order)"
+            ]
+          },
+          {
+            "day": 21,
+            "events": []
+          },
+          {
+            "day": 22,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 23,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 24,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 25,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 26,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 27,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 28,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 29,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 30,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 31,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          }
+        ]
+      },
+      {
+        "month": "JANUARY 2026",
+        "days": [
+          {
+            "day": 1,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 2,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 3,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 4,
+            "events": [
+              "Holiday",
+              "(Winter Vacation)"
+            ]
+          },
+          {
+            "day": 5,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 6,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 7,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 8,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 9,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 10,
+            "events": [
+              "Instructional Day",
+              "(Instructional Day / Wednesday Day Order)"
+            ]
+          },
+          {
+            "day": 11,
+            "events": []
+          },
+          {
+            "day": 12,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 13,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 14,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 15,
+            "events": [
+              "Holiday",
+              "(Pongal (Holiday)"
+            ]
+          },
+          {
+            "day": 16,
+            "events": [
+              "Holiday",
+              "(Pongal (Holiday)"
+            ]
+          },
+          {
+            "day": 17,
+            "events": [
+              "Holiday",
+              "(Pongal (Holiday)"
+            ]
+          },
+          {
+            "day": 18,
+            "events": [
+              "Holiday",
+              "(Pongal (Holiday)"
+            ]
+          },
+          {
+            "day": 19,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 20,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 21,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 22,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 23,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 24,
+            "events": [
+              "CAT - I",
+              "(CAT I)"
+            ]
+          },
+          {
+            "day": 25,
+            "events": [
+              "CAT - I",
+              "(CAT I)"
+            ]
+          },
+          {
+            "day": 26,
+            "events": [
+              "Holiday",
+              "(Republic Day)"
+            ]
+          },
+          {
+            "day": 27,
+            "events": [
+              "CAT - I",
+              "(CAT I)"
+            ]
+          },
+          {
+            "day": 28,
+            "events": [
+              "CAT - I",
+              "(CAT I)"
+            ]
+          },
+          {
+            "day": 29,
+            "events": [
+              "CAT - I",
+              "(CAT I)"
+            ]
+          },
+          {
+            "day": 30,
+            "events": [
+              "CAT - I",
+              "(CAT I)"
+            ]
+          },
+          {
+            "day": 31,
+            "events": [
+              "CAT - I",
+              "(CAT I)"
+            ]
+          }
+        ]
+      },
+      {
+        "month": "FEBRUARY 2026",
+        "days": [
+          {
+            "day": 1,
+            "events": [
+              "Holiday",
+              "(ThaiPoosam)"
+            ]
+          },
+          {
+            "day": 2,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 3,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 4,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 5,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 6,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 7,
+            "events": [
+              "Instructional Day",
+              "(Instructional Day / Thursday Day Order)"
+            ]
+          },
+          {
+            "day": 8,
+            "events": []
+          },
+          {
+            "day": 9,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 10,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 11,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 12,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 13,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 14,
+            "events": []
+          },
+          {
+            "day": 15,
+            "events": []
+          },
+          {
+            "day": 16,
+            "events": [
+              "Instructional Day",
+              "(Working Day / Course Withdraw option)"
+            ]
+          },
+          {
+            "day": 17,
+            "events": [
+              "Instructional Day",
+              "(Working Day / Course Withdraw option)"
+            ]
+          },
+          {
+            "day": 18,
+            "events": [
+              "No Instructional Day",
+              "(Course Withdraw option / Vibrance 2026)"
+            ]
+          },
+          {
+            "day": 19,
+            "events": [
+              "No Instructional Day",
+              "(Vibrance 2026)"
+            ]
+          },
+          {
+            "day": 20,
+            "events": [
+              "No Instructional Day",
+              "(Vibrance 2026)"
+            ]
+          },
+          {
+            "day": 21,
+            "events": [
+              "No Instructional Day",
+              "(Vibrance 2026)"
+            ]
+          },
+          {
+            "day": 22,
+            "events": []
+          },
+          {
+            "day": 23,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 24,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 25,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 26,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 27,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 28,
+            "events": []
+          }
+        ]
+      },
+      {
+        "month": "MARCH 2026",
+        "days": [
+          {
+            "day": 1,
+            "events": []
+          },
+          {
+            "day": 2,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 3,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 4,
+            "events": [
+              "Holiday",
+              "(Holi)"
+            ]
+          },
+          {
+            "day": 5,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 6,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 7,
+            "events": []
+          },
+          {
+            "day": 8,
+            "events": []
+          },
+          {
+            "day": 9,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 10,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 11,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 12,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 13,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 14,
+            "events": [
+              "CAT - II",
+              "(CAT-II)"
+            ]
+          },
+          {
+            "day": 15,
+            "events": [
+              "CAT - II",
+              "(CAT-II)"
+            ]
+          },
+          {
+            "day": 16,
+            "events": [
+              "CAT - II",
+              "(CAT-II)"
+            ]
+          },
+          {
+            "day": 17,
+            "events": [
+              "CAT - II",
+              "(CAT-II)"
+            ]
+          },
+          {
+            "day": 18,
+            "events": [
+              "CAT - II",
+              "(CAT-II)"
+            ]
+          },
+          {
+            "day": 19,
+            "events": [
+              "No Instructional Day",
+              "(Telugu New Year's Day)"
+            ]
+          },
+          {
+            "day": 20,
+            "events": [
+              "CAT - II",
+              "(CAT-II)"
+            ]
+          },
+          {
+            "day": 21,
+            "events": [
+              "Holiday",
+              "(Eid-ul-Fitr ( Holiday))"
+            ]
+          },
+          {
+            "day": 22,
+            "events": [
+              "CAT - II",
+              "(CAT-II)"
+            ]
+          },
+          {
+            "day": 23,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 24,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 25,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 26,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 27,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 28,
+            "events": []
+          },
+          {
+            "day": 29,
+            "events": []
+          },
+          {
+            "day": 30,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 31,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          }
+        ]
+      },
+      {
+        "month": "APRIL 2026",
+        "days": [
+          {
+            "day": 1,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 2,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 3,
+            "events": [
+              "No Instructional Day",
+              "(Good Friday)"
+            ]
+          },
+          {
+            "day": 4,
+            "events": []
+          },
+          {
+            "day": 5,
+            "events": []
+          },
+          {
+            "day": 6,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 7,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 8,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 9,
+            "events": [
+              "Instructional Day",
+              "(Working Day)"
+            ]
+          },
+          {
+            "day": 10,
+            "events": [
+              "Instructional Day",
+              "(Working Day / LID for laboratory classes)"
+            ]
+          },
+          {
+            "day": 11,
+            "events": [
+              "Instructional Day",
+              "(LAB FAT /Instructional Day / Tuesday Day Order)"
+            ]
+          },
+          {
+            "day": 12,
+            "events": []
+          },
+          {
+            "day": 13,
+            "events": [
+              "Instructional Day",
+              "(Working Day / LAB FAT)"
+            ]
+          },
+          {
+            "day": 14,
+            "events": [
+              "Holiday",
+              "(Tamil New Year's Day/Dr. B. R. Ambedhakr Birthday)"
+            ]
+          },
+          {
+            "day": 15,
+            "events": [
+              "Instructional Day",
+              "(Working Day / LAB FAT)"
+            ]
+          },
+          {
+            "day": 16,
+            "events": [
+              "Instructional Day",
+              "(Working Day / LAB FAT)"
+            ]
+          },
+          {
+            "day": 17,
+            "events": [
+              "Instructional Day",
+              "(Working Day / LAB FAT / LID for theory classes)"
+            ]
+          },
+          {
+            "day": 18,
+            "events": []
+          },
+          {
+            "day": 19,
+            "events": []
+          },
+          {
+            "day": 20,
+            "events": []
+          },
+          {
+            "day": 21,
+            "events": []
+          },
+          {
+            "day": 22,
+            "events": []
+          },
+          {
+            "day": 23,
+            "events": []
+          },
+          {
+            "day": 24,
+            "events": []
+          },
+          {
+            "day": 25,
+            "events": []
+          },
+          {
+            "day": 26,
+            "events": []
+          },
+          {
+            "day": 27,
+            "events": []
+          },
+          {
+            "day": 28,
+            "events": []
+          },
+          {
+            "day": 29,
+            "events": []
+          },
+          {
+            "day": 30,
+            "events": []
+          }
+        ]
+      }
+    ]
+  }
+}
