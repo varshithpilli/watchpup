@@ -51,12 +51,14 @@ You can run **VTOP WatchPup** in two different ways.
 REGD=xxxxxxxxxxxx
 PASS=xxxxxxxxxxxx
 
-VTOP_SEMID=xxxxxxxxxxxxxx
 INTERVAL_SECONDS =xxxxxxxxxxx # in seconds
 MAX_RETIRES=10 # to skip the google captcha
+GITHUB_ACTIONS=xxxxxxx
 
 TG_BOT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxx
 TG_CHAT_ID=xxxxxxxxxxxxxxxxxxxx
+
+VTOP_SEMID=xxxxxxxxxxxxxx
 ```
 You could get the `VTOP_SEMID` from the list by running get_semid.py
 

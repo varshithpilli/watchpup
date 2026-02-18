@@ -12,7 +12,16 @@ from handlers.parse_html import get_marks_json, get_grades_json, get_cgpa_json, 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-STATE_FILE = Path.home() / ".watchpup" / "last_saved.json"
+import os
+from pathlib import Path
+
+if os.getenv("GITHUB_ACTIONS") == "true":
+    STATE_FILE = Path("state/last_saved.json")
+else:
+    STATE_FILE = Path.home() / ".watchpup" / "last_saved.json"
+
+# STATE_FILE = Path.home() / ".watchpup" / "last_saved.json"
+
 STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 print(f"STATE: {STATE_FILE}")
