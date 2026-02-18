@@ -12,31 +12,6 @@
       "marks_data": [
         {
           "sl_no": "1",
-          "class_nbr": "CH2025260500041",
-          "course_code": "BSTS302P",
-          "course_title": "Advanced Competitive Coding - II",
-          "course_type": "Soft Skill",
-          "course_system": "CBCS",
-          "faculty": "ETHNUS (APT)",
-          "slot": "B2+TB2",
-          "course_mode": "SBC01",
-          "marks": [
-            {
-              "sl_no": "1",
-              "mark_title": "Continuous Assessment Test - I",
-              "max_mark": "30",
-              "weightage_percent": "15",
-              "status": "Present",
-              "scored_mark": "30.0",
-              "weightage_mark": "15",
-              "class_average": "",
-              "mark_posted_strength": "",
-              "remark": "CAT1-Examly MARKS UPLOAD"
-            }
-          ]
-        },
-        {
-          "sl_no": "2",
           "class_nbr": "CH2025260503337",
           "course_code": "BCSE209L",
           "course_title": "Machine Learning",
@@ -61,7 +36,57 @@
           ]
         },
         {
+          "sl_no": "2",
+          "class_nbr": "CH2025260500041",
+          "course_code": "BSTS302P",
+          "course_title": "Advanced Competitive Coding - II",
+          "course_type": "Soft Skill",
+          "course_system": "CBCS",
+          "faculty": "ETHNUS (APT)",
+          "slot": "B2+TB2",
+          "course_mode": "SBC01",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "30",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "30.0",
+              "weightage_mark": "15",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": "CAT1-Examly MARKS UPLOAD"
+            }
+          ]
+        },
+        {
           "sl_no": "3",
+          "class_nbr": "CH2025260501691",
+          "course_code": "BCSE309L",
+          "course_title": "Cryptography and Network Security",
+          "course_type": "Theory Only",
+          "course_system": "CBCS",
+          "faculty": "PADMANABAN R",
+          "slot": "C2+TC2",
+          "course_mode": "CBL09",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "30.0",
+              "weightage_mark": "9",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
+          ]
+        },
+        {
+          "sl_no": "4",
           "class_nbr": "CH2025260503112",
           "course_code": "BCSE305L",
           "course_title": "Embedded Systems",
@@ -86,7 +111,32 @@
           ]
         },
         {
-          "sl_no": "4",
+          "sl_no": "5",
+          "class_nbr": "CH2025260501699",
+          "course_code": "BCSE429L",
+          "course_title": "Cyber Physical Systems Design",
+          "course_type": "Theory Only",
+          "course_system": "CBCS",
+          "faculty": "SUBITHA D",
+          "slot": "D2",
+          "course_mode": "CBL09",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "35.0",
+              "weightage_mark": "10.5",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
+          ]
+        },
+        {
+          "sl_no": "6",
           "class_nbr": "CH2025260501686",
           "course_code": "BCSE307L",
           "course_title": "Compiler Design",
@@ -96,6 +146,43 @@
           "slot": "F2+TF2",
           "course_mode": "CBL09",
           "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "40.5",
+              "weightage_mark": "12.15",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
+          ]
+        },
+        {
+          "sl_no": "7",
+          "class_nbr": "CH2025260501682",
+          "course_code": "BCSE306L",
+          "course_title": "Artificial Intelligence",
+          "course_type": "Theory Only",
+          "course_system": "CBCS",
+          "faculty": "NIVETHITHA V",
+          "slot": "E2+TE2",
+          "course_mode": "CBL09",
+          "marks": [
+            {
+              "sl_no": "1",
+              "mark_title": "Continuous Assessment Test - I",
+              "max_mark": "50",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "36.0",
+              "weightage_mark": "10.8",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            }
           ]
         }
       ]
