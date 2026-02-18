@@ -23,12 +23,12 @@ from handlers.get_html import logout
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-logging.basicConfig(
-    filename = str(Path.home() / ".watchpup" / "watchpup.log"),
-    filemode="a",
-    level=logging.INFO,
-    format="%(message)s"
-)
+# logging.basicConfig(
+#     filename = str(Path.home() / ".watchpup" / "watchpup.log"),
+#     filemode="a",
+#     level=logging.INFO,
+#     format="%(message)s"
+# )
 
 def main():
     previous = load_previous()
@@ -47,28 +47,28 @@ def main():
             status = current.get("STATUS")
 
             if status != "OK":
-                logging.info(f"{now()} STATUS: {status}")
+                # logging.info(f"{now()} STATUS: {status}")
                 continue
 
             current_data = current["data"]
             current_fp = get_hash(current_data)
 
             if previous is None:
-                logging.info(f"{now()} STATUS: Initialised")
+                # logging.info(f"{now()} STATUS: Initialised")
                 save_current(current)
                 previous = current
                 previous_fp = current_fp
 
             elif current_fp != previous_fp:
-                logging.info(f"{now()} STATUS: Changes Found")
+                # logging.info(f"{now()} STATUS: Changes Found")
                 notify(previous["data"], current_data, TG_BOT_TOKEN, TG_CHAT_ID)
-                logging.info(f"{now()} STATUS: Notification sent")
+                # logging.info(f"{now()} STATUS: Notification sent")
                 save_current(current)
                 previous = current
                 previous_fp = current_fp
 
             else:
-                logging.info(f"{now()} STATUS: No Change")
+                # logging.info(f"{now()} STATUS: No Change")
 
             logout(REGD)
             return
