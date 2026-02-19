@@ -48,6 +48,18 @@
           "marks": [
             {
               "sl_no": "1",
+              "mark_title": "Assessment - 1",
+              "max_mark": "15",
+              "weightage_percent": "15",
+              "status": "Present",
+              "scored_mark": "15.0",
+              "weightage_mark": "15",
+              "class_average": "",
+              "mark_posted_strength": "",
+              "remark": ""
+            },
+            {
+              "sl_no": "2",
               "mark_title": "Continuous Assessment Test - I",
               "max_mark": "30",
               "weightage_percent": "15",
