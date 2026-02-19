@@ -123,3 +123,6 @@ TODO:
  - [X] something so the user doesnt have to run get_semid
  - [ ] send the sub name instead of sub code
  - [ ] error handlers
+
+## Credits
+Captcha weights: **[VtopCaptchaSolver3.0](https://github.com/pratyush3124/VtopCaptchaSolver3.0)** by *Pratyush*
