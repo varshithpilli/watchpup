@@ -125,4 +125,5 @@ TODO:
  - [ ] error handlers
 
 ## Credits
-Captcha weights: **[VtopCaptchaSolver3.0](https://github.com/pratyush3124/VtopCaptchaSolver3.0)** by *Pratyush*
+Insights into VTop auth:  **[VIT Verse app](https://github.com/vit-verse/vitverse-app)** by *[Divyanshu Patel](https://github.com/divyanshupatel17)*
+Captcha weights: **[VtopCaptchaSolver3.0](https://github.com/pratyush3124/VtopCaptchaSolver3.0)** by *[Pratyush](https://github.com/pratyush3124)*
