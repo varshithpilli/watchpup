@@ -57,6 +57,7 @@ on:
 jobs:
   watchdog:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
 
     permissions:
       contents: write
